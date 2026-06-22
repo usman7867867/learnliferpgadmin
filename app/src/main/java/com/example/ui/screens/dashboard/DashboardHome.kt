@@ -22,7 +22,7 @@ import com.example.ui.theme.GoldAccent
 import com.example.ui.theme.PurpleAccent
 
 @Composable
-fun DashboardHome() {
+fun DashboardHome(onNavigate: (String) -> Unit = {}) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -75,7 +75,19 @@ fun DashboardHome() {
             userScrollEnabled = false
         ) {
             items(actions) { action ->
-                QuickActionCard(title = action.first, icon = action.second)
+                QuickActionCard(
+                    title = action.first,
+                    icon = action.second,
+                    onClick = {
+                        when (action.first) {
+                            "Post Announcement" -> onNavigate("announcements")
+                            "Create Class" -> onNavigate("classes")
+                            "Create Plan" -> onNavigate("plans")
+                            "Create Task" -> onNavigate("tasks")
+                            "View Payments" -> onNavigate("subscriptions")
+                        }
+                    }
+                )
             }
         }
     }
@@ -104,11 +116,11 @@ fun StatCard(title: String, value: String, icon: ImageVector) {
 }
 
 @Composable
-fun QuickActionCard(title: String, icon: ImageVector) {
+fun QuickActionCard(title: String, icon: ImageVector, onClick: () -> Unit = {}) {
     Card(
         modifier = Modifier.fillMaxWidth().aspectRatio(1f),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
-        onClick = { /* Handle action */ }
+        onClick = onClick
     ) {
         Column(
             modifier = Modifier.fillMaxSize().padding(8.dp),

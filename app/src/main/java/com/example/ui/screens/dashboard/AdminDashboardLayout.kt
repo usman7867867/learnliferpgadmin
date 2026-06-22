@@ -93,12 +93,13 @@ fun AdminDashboardLayout(onLogout: () -> Unit) {
         ) { innerPadding ->
             Box(modifier = Modifier.padding(innerPadding).fillMaxSize()) {
                 when (currentRoute) {
-                    "home" -> DashboardHome()
+                    "home" -> DashboardHome(onNavigate = { route -> currentRoute = route })
                     "users" -> ManageUsersScreen()
                     "classes" -> ManageClassesScreen()
                     "plans" -> ManagePlansScreen()
                     "tasks" -> com.example.ui.screens.tasks.ManageTasksScreen()
                     "support" -> com.example.ui.screens.support.ManageSupportScreen()
+                    "announcements" -> com.example.ui.screens.announcements.ManageAnnouncementsScreen()
                     else -> CenterPlaceholder(currentRoute.replaceFirstChar { it.uppercase() })
                 }
             }

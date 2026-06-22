@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1084571819798",
+    "firebase_url": "https://learn-life-rpg-default-rtdb.firebaseio.com",
+    "project_id": "learn-life-rpg",
+    "storage_bucket": "learn-life-rpg.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084571819798:android:2e6dbcfe5bbdea13cf7a37",
+        "android_client_info": {
+          "package_name": "com.usman.liferpg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhwqeWDWIE1tNNEsMPz7vceDE9VcyPtxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084571819798:android:123456789abcdef",
+        "android_client_info": {
+          "package_name": "com.usman.liferpg.admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhwqeWDWIE1tNNEsMPz7vceDE9VcyPtxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

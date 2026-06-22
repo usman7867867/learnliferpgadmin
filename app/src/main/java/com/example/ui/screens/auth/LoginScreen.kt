@@ -117,15 +117,16 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
                     if (email.isNotBlank() && password.isNotBlank()) {
                         isLoading = true
                         errorMessage = null
-                        coroutineScope.launch {
-                            delay(1500) // Simulate Firebase Auth
-                            isLoading = false
-                            if (email == "admin@liferpg.com" || true) { // allow all for demo
-                                onLoginSuccess()
-                            } else {
-                                errorMessage = "Invalid Credentials. Use Firestore Role Validation."
+                        com.google.firebase.auth.FirebaseAuth.getInstance()
+                            .signInWithEmailAndPassword(email.trim(), password)
+                            .addOnCompleteListener { task ->
+                                isLoading = false
+                                if (task.isSuccessful) {
+                                    onLoginSuccess()
+                                } else {
+                                    errorMessage = task.exception?.message ?: "Login Failed"
+                                }
                             }
-                        }
                     } else {
                         errorMessage = "Fields cannot be empty"
                     }
